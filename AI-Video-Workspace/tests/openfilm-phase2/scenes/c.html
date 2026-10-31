@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="common.css"><title>03 作品</title>
+<style>
+h1 { font-size: 76px; }.phone { position: absolute; width: 510px; height: 870px; top: 800px; left: 285px; border: 12px solid #78958a; border-radius: 66px; background: #eef1e9; box-shadow: 0 55px 110px #050b0caa; color: #243c37; overflow: hidden; }
+.notch { position: absolute; top: 14px; left: 182px; width: 122px; height: 20px; border-radius: 15px; background: #243c37; }.app { padding: 92px 42px 40px; }.app .small { font-size: 18px; letter-spacing: 3px; color: #718c80; }.app h2 { font-size: 42px; margin: 25px 0 10px; }.app p { font-size: 20px; color: #758a80; }.card { margin-top: 45px; border-radius: 23px; background: #cbded0; height: 250px; padding: 36px; }.card strong { display: block; font-size: 32px; margin-top: 15px; }.line { height: 12px; background: #abc9b6; border-radius: 10px; margin-top: 25px; }.line.short { width: 65%; }.button { margin-top: 40px; height: 64px; background: #2b5849; border-radius: 14px; color: #edf5ec; text-align: center; font-size: 23px; line-height: 64px; }
+</style></head><body><main class="canvas"><div class="border"></div><div class="eyebrow">A FIRST CREATION</div>
+<div class="copy" id="copy"><div class="kicker">03 / 作品</div><h1>这是我的<br><span class="accent">第一个作品</span></h1><p class="caption">从零开始，也可以做出自己的东西。</p></div>
+<div class="phone" id="phone"><div class="notch"></div><div class="app"><div class="small">MY FIRST APP</div><h2>你好，世界</h2><p>从一个小小的想法开始</p><div class="card"><span class="label">TODAY</span><strong>继续创造</strong><div class="line"></div><div class="line short"></div></div><div class="button">开始探索</div></div></div>
+<div class="foot"><span>THE JOURNEY BEGINS</span><span>03 — 03</span></div></main>
+<script>window.film={duration:4,frame(t){const x=Math.max(0,Math.min(1,t/0.9));document.querySelector('#copy').style.opacity=String(x);document.querySelector('#copy').style.transform=`translateY(${(1-x)*24}px)`;document.querySelector('#phone').style.transform=`translateY(${(1-x)*48}px) rotate(${(1-x)*-1.2}deg)`;}};</script></body></html>

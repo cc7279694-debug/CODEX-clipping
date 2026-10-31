@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="common.css"><title>02 开始</title>
+<style>
+h1 { font-size: 72px; }.screen { position: absolute; top: 890px; left: 90px; width: 900px; height: 600px; background: #172327; border: 1px solid #405859; border-radius: 25px; box-shadow: 0 50px 100px #060d0e99; overflow: hidden; }
+.bar { height: 62px; background: #203033; border-bottom: 1px solid #3b5150; display: flex; align-items: center; gap: 11px; padding-left: 25px; }.bar i { width: 12px; height: 12px; background: #719184; border-radius: 50%; }
+.side { position: absolute; top: 62px; bottom: 0; width: 180px; background: #152023; border-right: 1px solid #354946; padding: 40px 25px; }.side div { height: 9px; border-radius: 6px; background: #3b5650; margin-bottom: 28px; }
+.code { margin-left: 235px; padding-top: 60px; color: #9dc6ad; font: 26px/2.2 Consolas,monospace; }.code .light { color: #d6e4d2; }.code .muted { color: #698a7c; }
+.cursor { display: inline-block; background: #c7e4c4; width: 11px; height: 27px; vertical-align: middle; }
+</style></head><body><main class="canvas"><div class="border"></div><div class="eyebrow">LEARNING BY MAKING</div>
+<div class="copy" id="copy"><div class="kicker">02 / 开始</div><h1>但是我开始<br>用 <span class="accent">AI</span> 做 APP</h1><p class="caption">从一个想法，慢慢变成现实。</p></div>
+<div class="screen" id="screen"><div class="bar"><i></i><i></i><i></i></div><div class="side"><div></div><div></div><div></div></div><div class="code"><div class="muted">// one step at a time</div><div><span class="light">const</span> idea = <span class="light">'my app'</span>;</div><div><span class="light">await</span> build(idea);</div><div class="muted">// keep learning<span class="cursor" id="cursor"></span></div></div></div>
+<div class="foot"><span>IDEA TO PRODUCT</span><span>02 — 03</span></div></main>
+<script>window.film={duration:4,frame(t){const x=Math.max(0,Math.min(1,t/0.9));document.querySelector('#copy').style.opacity=String(x);document.querySelector('#copy').style.transform=`translateY(${(1-x)*24}px)`;document.querySelector('#screen').style.transform=`translateY(${(1-x)*38}px)`;document.querySelector('#cursor').style.opacity=(Math.floor(t*2)%2===0?'1':'0');}};</script></body></html>

@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+body { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; color: #f2f2ed; background: #10181b; }
+.canvas { width: 100%; height: 100%; position: relative; overflow: hidden; background: radial-gradient(ellipse at 82% 18%, #244245 0%, #172729 30%, #10181b 72%); }
+.eyebrow { position: absolute; top: 140px; left: 90px; font-size: 25px; letter-spacing: 6px; color: #a9c2ba; }
+.eyebrow::before { content: ""; display: inline-block; width: 38px; height: 2px; margin: 0 18px 8px 0; background: #c6dbb7; }
+.copy { position: absolute; top: 350px; left: 90px; right: 90px; z-index: 2; }
+.kicker { color: #b7d2c7; font-size: 31px; letter-spacing: 4px; margin-bottom: 35px; }
+h1 { margin: 0; font-size: 84px; font-weight: 600; line-height: 1.35; letter-spacing: 1px; }
+.accent { color: #c7e4c4; }
+.caption { margin-top: 30px; font-size: 29px; line-height: 1.65; color: #b7c5c0; }
+.foot { position: absolute; bottom: 105px; left: 90px; right: 90px; display: flex; justify-content: space-between; color: #91aaa2; font-size: 23px; letter-spacing: 3px; }
+.border { position: absolute; inset: 56px; border: 1px solid rgba(211,235,221,.15); pointer-events: none; }
+.label { color: #a0cbb6; font-size: 22px; letter-spacing: 4px; }
