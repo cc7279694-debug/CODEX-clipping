@@ -33,3 +33,7 @@
 已在 `AI-Video-Workspace/tests/openfilm-phase2/` 建立 OpenFilm `film.html`、三个 4 秒镜头页和本地 12 秒合成音轨，静态工程与本地引用检查通过。官方 `look` 由于本机回环连接被拒绝而失败，未生成检查图；Studio 后台曾启动，但工程未打开或修改，图形界面验收等待人工检查。OpenFilm `render` 与导出检查均 **NOT_RUN**，没有本阶段成片。详情见 [Phase 2 报告](docs/evidence/PHASE2-OPENFILM-REPORT.md)。
 
 此前剪映 JianyingEditor Phase 1 的 BLOCKED 状态不变，参见 `AI-Video-Workspace/phase-1/PHASE1_REPORT.md`。
+
+## OpenFilm Phase 2A：PARTIAL / BLOCKED
+
+当前 Codex 执行环境中的独立 Python 回环监听成功，但连接同一随机端口被拒绝（Windows 10013）。这复现了与 OpenFilm 无关的本地连接受限现象；普通 Windows 用户会话尚未验证，具体策略来源、Chromium 和 OpenFilm 本身是否存在问题仍为 UNKNOWN。按门禁没有重复执行 `look`、Studio 编辑或 `render`。用户可按 `AI-Video-Workspace/tests/openfilm-phase2/MANUAL-LOOPBACK.md` 在普通 PowerShell 手动对照；结果不等同于 OpenFilm 验收。详情见 [Phase 2A 报告](docs/evidence/PHASE2A-CONNECTION-REPORT.md)。
