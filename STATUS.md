@@ -41,3 +41,7 @@
 ## OpenFilm Phase 2B：PARTIAL / BLOCKED
 
 用户报告已在 Windows OpenFilm Studio 打开原测试工程且第一镜头中文正常；本次截图直接显示第二镜头中文、1080×1920、12 秒、2 轨和 4 个片段，包含三段镜头及 `bed.wav` 音轨。截图帧率设置为 **60 fps**，不能作为 30 fps 输出的证据。已建立 `AI-Video-Workspace/tests/openfilm-phase2b/` 独立副本，六个文件的 SHA-256 与原工程一致；尚未修改副本。电脑操作接口连接超时，三个镜头的连续播放与动画、标题修改保存重开、OpenFilm 导出、FFprobe、解码及听感仍为 **NOT_RUN / WAITING_USER_CHECK**。Studio 加载子项已有用户证据，但 T04 整项未通过。操作步骤和证据边界见 [Phase 2 报告的 Phase 2B 记录](docs/evidence/PHASE2-OPENFILM-REPORT.md)。
+
+### Phase 2B 最终验收补充：PARTIAL / BLOCKED
+
+用户本轮明确报告已在 Windows OpenFilm Studio 成功打开并预览三镜头工程，反馈测试正常，记为 **USER_REPORTED_PASS**，不等于自动验证或已确认标题保存重开、听音和 30 fps。副本六个必要文件与原工程哈希仍一致，尚无标题修改证据；测试目录未发现完整导出 MP4，预览缓存不计为成片。当前执行环境的独立 Python 回环监听成功，但连接被拒绝（Windows 10013、errno 13），测试资源已关闭；本轮未运行官方 render，导出文件的 FFprobe、音轨及完整解码均为 **NOT_RUN**。标题修改保存重开与普通桌面导出为 **WAITING_USER_CHECK**。当前不能标记 ACCEPTED / FROZEN；详细记录见 [Phase 2 报告](docs/evidence/PHASE2-OPENFILM-REPORT.md)。
