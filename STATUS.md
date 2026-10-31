@@ -57,3 +57,9 @@
 ## Phase 3A：方案准备
 
 本阶段准备本地中文口播粗剪的技术方案、依赖与验收标准；本机中文语音识别、字幕时间戳误差、静音检测误删以及资源和耗时测试均为 **NOT_RUN**。不得将现有 ffmpeg-skill 仓库副本视为已自动注册。详情见 [Phase 3A 方案](docs/PHASE3A-PLAN.md)。
+
+## Phase 3B：基础代码 READY_FOR_REVIEW，整体 PARTIAL
+
+已实现只读元数据与静音分析、本地 ASR 预检和适配、SRT、保守建议、接受／拒绝／撤销的新 JSON 审核流程；不提供真实剪切。41 项标准库单元测试通过，仅证明相应逻辑与安全行为。已知静音纯音测试识别到预设 2–4 秒区间；真实阻塞流程写出四类分析文件，源 SHA-256 前后一致，ASR 未完成时字幕保持空且明确 NOT_RUN。
+
+官方 PyPI 与 Hugging Face 有限请求均超时；独立 Python 3.12.4 环境已建，但尚无实际 ASR 包、模型、依赖 lock、模型 revision 或文件哈希。依赖准备 **BLOCKED**；中文 TTS 不可靠、中文冒烟、真实模型加载及离线推理、真人质量和实际模型性能均 **NOT_RUN**。首测候选为多语言 base、CPU int8、单进程有限线程。Phase 2C 的标题保存重开与完整试听仍为 WAITING_USER_CHECK，未标记 ACCEPTED。详情见 [Phase 3B 报告](docs/evidence/PHASE3B-REPORT.md)。

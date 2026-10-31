@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-clipping"
+version = "0.1.0"
+description = "Local review-only Chinese speech editing analysis"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+codex-clipping = "codex_clipping.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

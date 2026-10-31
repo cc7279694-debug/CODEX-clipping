@@ -30,3 +30,13 @@ __pycache__/
 openfilm-workspace/
 JianyingPro\ Drafts/
 *.log
+
+# Runtime model assets and local analysis evidence (never public)
+AI-Video-Workspace/phase3b/
+**/runtime/
+**/.film/
+github-share-staging/
+*.flac
+*.ogg
+*.opus
+*.bin

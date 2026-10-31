@@ -4,6 +4,9 @@
 
 ## 先读这里
 
+- [Phase 3B 开发与测试记录](docs/evidence/PHASE3B-REPORT.md)：基础代码 **DEV_COMPLETE / READY_FOR_REVIEW**，整体 **PARTIAL**；41 项逻辑和安全测试通过，官方依赖与模型下载 **BLOCKED**，中文 ASR、真实模型加载和真人质量测试 **NOT_RUN**。
+- [Phase 3B 使用说明](docs/PHASE3B-USAGE.md)：独立本地 CLI 只输出字幕、低电平候选和可撤销审核 JSON，不执行剪切。语音保护证据不完整时不生成删除建议。
+
 - [Phase 2C 收尾记录](docs/evidence/PHASE2C-CLOSEOUT.md)：**PARTIAL / WAITING_USER_CHECK**。用户已接受当前用途的 60 fps，30 fps 输出未测试；标题修改保存重开和完整试听待人工确认。
 - [Phase 3A 中文口播粗剪技术方案](docs/PHASE3A-PLAN.md)：**READY_FOR_REVIEW（仅方案）**；本机语音识别、时间戳、误删和资源耗时均未测试。
 - [OpenFilm Studio Phase 2 历史报告](docs/evidence/PHASE2-OPENFILM-REPORT.md)：保留早期回环连接阻塞、用户手动预览与后续 60 fps 导出检查证据。公开源码不包含音频，请先运行测试目录的 `generate_audio.py` 生成合成音频。
