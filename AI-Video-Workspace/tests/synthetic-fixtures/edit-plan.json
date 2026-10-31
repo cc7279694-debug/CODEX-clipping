@@ -1,0 +1,17 @@
+{
+  "status": "PLANNED_ONLY",
+  "purpose": "Synthetic-only edit plan; no Jianying draft has been created.",
+  "canvas": {"width": 360, "height": 640, "fps": 25},
+  "duration_seconds": 5.4,
+  "video": [
+    {"file": "generated/clip-a.mp4", "source_start": 0, "source_end": 2.8, "timeline_start": 0},
+    {"file": "generated/clip-b.mp4", "source_start": 0, "source_end": 2.8, "timeline_start": 2.6}
+  ],
+  "transition": {"type": "crossfade", "duration": 0.2, "status": "NOT_IMPLEMENTED"},
+  "audio": [{"file": "generated/music.wav", "timeline_start": 0, "duration": 5.4, "track": "background", "status": "NOT_IMPLEMENTED"}],
+  "subtitles": [
+    {"start": 0.4, "end": 2.0, "text": "这是合成测试素材。"},
+    {"start": 3.0, "end": 5.0, "text": "用于验证剪辑流程。"}
+  ],
+  "note": "Planning data only. No claim that tracks, transition or subtitles were created in Jianying."
+}

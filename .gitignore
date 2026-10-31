@@ -1,0 +1,32 @@
+# Local applications, environments, caches and secrets
+OpenFilm/
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Personal media, drafts and generated outputs
+*.mp4
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.m4a
+*.jpg
+*.jpeg
+*.png
+*.webm
+*.srt
+**/generated/
+**/runs/
+openfilm-workspace/
+JianyingPro\ Drafts/
+*.log
