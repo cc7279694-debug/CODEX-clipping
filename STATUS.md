@@ -37,3 +37,7 @@
 ## OpenFilm Phase 2A：PARTIAL / BLOCKED
 
 当前 Codex 执行环境中的独立 Python 回环监听成功，但连接同一随机端口被拒绝（Windows 10013）。这复现了与 OpenFilm 无关的本地连接受限现象；普通 Windows 用户会话尚未验证，具体策略来源、Chromium 和 OpenFilm 本身是否存在问题仍为 UNKNOWN。按门禁没有重复执行 `look`、Studio 编辑或 `render`。用户可按 `AI-Video-Workspace/tests/openfilm-phase2/MANUAL-LOOPBACK.md` 在普通 PowerShell 手动对照；结果不等同于 OpenFilm 验收。详情见 [Phase 2A 报告](docs/evidence/PHASE2A-CONNECTION-REPORT.md)。
+
+## OpenFilm Phase 2B：PARTIAL / BLOCKED
+
+用户报告已在 Windows OpenFilm Studio 打开原测试工程且第一镜头中文正常；本次截图直接显示第二镜头中文、1080×1920、12 秒、2 轨和 4 个片段，包含三段镜头及 `bed.wav` 音轨。截图帧率设置为 **60 fps**，不能作为 30 fps 输出的证据。已建立 `AI-Video-Workspace/tests/openfilm-phase2b/` 独立副本，六个文件的 SHA-256 与原工程一致；尚未修改副本。电脑操作接口连接超时，三个镜头的连续播放与动画、标题修改保存重开、OpenFilm 导出、FFprobe、解码及听感仍为 **NOT_RUN / WAITING_USER_CHECK**。Studio 加载子项已有用户证据，但 T04 整项未通过。操作步骤和证据边界见 [Phase 2 报告的 Phase 2B 记录](docs/evidence/PHASE2-OPENFILM-REPORT.md)。
