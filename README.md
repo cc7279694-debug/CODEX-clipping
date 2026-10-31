@@ -4,7 +4,8 @@
 
 ## 先读这里
 
-- [剪映接入环境与安全审查](AI-Video-Workspace/SETUP_REPORT.md) 和 [集中测试记录](AI-Video-Workspace/TEST_REPORT.md)：最近一轮状态为 **BLOCKED**。剪映 MCP 未安装或注册，没有生成可供剪映打开的测试草稿。
+- [JianyingEditor Skill Phase 1 报告](AI-Video-Workspace/phase-1/PHASE1_REPORT.md)：最新状态为 **BLOCKED**。官方仓库访问返回 404，未安装 Skill，也未创建剪映草稿。
+- [剪映接入环境与安全审查](AI-Video-Workspace/SETUP_REPORT.md) 和 [集中测试记录](AI-Video-Workspace/TEST_REPORT.md)：此前一轮状态为 **BLOCKED**。剪映 MCP 未安装或注册，没有生成可供剪映打开的测试草稿。
 - [整体工作站状态](STATUS.md)：OpenFilm 的 Skill 已有本地副本，使用桌面版自带的工具做过 FFmpeg 合成测试；OpenFilm 自身的项目编辑、导出仍未验证。
 - [剪映创作风格](AI-Video-Workspace/STYLE.md) 与 [通用创作风格](STYLE.md)。
 - [工作站使用说明](docs/WORKSTATION_README.md)、[合成测试说明](synthetic-test/README.md)。
