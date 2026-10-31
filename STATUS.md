@@ -2,6 +2,10 @@
 
 更新时间：2026-10-31。仅使用合成素材测试，未处理正式视频。
 
+## Phase 3C：BLOCKED，等待独立验收
+
+远端基线已核对；本地独立 Python 3.12.4 环境仍缺 pip、ASR 依赖与模型。PyPI 请求超时；Hugging Face 元数据一次 HTTP 200，但后续请求与模型权重检查超时，不能认定可靠下载。普通 Windows 用户终端连接状态 **UNKNOWN**。本轮现有 41 项逻辑回归通过；真实模型加载、离线推理、中文识别及真人质量均 **NOT_RUN**。模型自填 manifest 不构成官方来源验证。最小用户终端对照、官方文件与离线导入条件见 [Phase 3C 报告](docs/evidence/PHASE3C-REPORT.md)。Phase 3B 整体仍为 PARTIAL；Phase 2C 仍为 PARTIAL / WAITING_USER_CHECK。
+
 ## 当前状态
 
 - 用户已安装 OpenFilm 0.2.7 到工作区 `OpenFilm/`。安装包 SHA-256 与 GitHub 官方 0.2.7 发布资产一致；Windows 签名状态为 NotSigned，该哈希核对不等同于数字签名认证。

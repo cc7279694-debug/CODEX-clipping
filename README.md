@@ -4,6 +4,7 @@
 
 ## 先读这里
 
+- [Phase 3C 中文 ASR 环境补验](docs/evidence/PHASE3C-REPORT.md)：**BLOCKED**；41 项逻辑回归通过，但官方依赖和模型尚未可靠取得，实际模型加载、离线推理及中文识别均 **NOT_RUN**；普通 Windows 用户终端连接状态待核对。
 - [Phase 3B 开发与测试记录](docs/evidence/PHASE3B-REPORT.md)：基础代码 **DEV_COMPLETE / READY_FOR_REVIEW**，整体 **PARTIAL**；41 项逻辑和安全测试通过，官方依赖与模型下载 **BLOCKED**，中文 ASR、真实模型加载和真人质量测试 **NOT_RUN**。
 - [Phase 3B 使用说明](docs/PHASE3B-USAGE.md)：独立本地 CLI 只输出字幕、低电平候选和可撤销审核 JSON，不执行剪切。语音保护证据不完整时不生成删除建议。
 
