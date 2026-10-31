@@ -45,3 +45,7 @@
 ### Phase 2B 最终验收补充：PARTIAL / BLOCKED
 
 用户本轮明确报告已在 Windows OpenFilm Studio 成功打开并预览三镜头工程，反馈测试正常，记为 **USER_REPORTED_PASS**，不等于自动验证或已确认标题保存重开、听音和 30 fps。副本六个必要文件与原工程哈希仍一致，尚无标题修改证据；测试目录未发现完整导出 MP4，预览缓存不计为成片。当前执行环境的独立 Python 回环监听成功，但连接被拒绝（Windows 10013、errno 13），测试资源已关闭；本轮未运行官方 render，导出文件的 FFprobe、音轨及完整解码均为 **NOT_RUN**。标题修改保存重开与普通桌面导出为 **WAITING_USER_CHECK**。当前不能标记 ACCEPTED / FROZEN；详细记录见 [Phase 2 报告](docs/evidence/PHASE2-OPENFILM-REPORT.md)。
+
+### Phase 2B 用户导出补充：PARTIAL / WAITING_USER_CHECK
+
+用户随后提供的测试 MP4 已检查：12.000 秒、1080×1920、H.264、**60 fps**，AAC 48 kHz 双声道；FFprobe 和完整音视频解码通过。实际 60 fps 与阶段目标 30 fps 不一致。约 2、6、10 秒三帧的中文和镜头内容可见，未发现明显裁剪；音量检测有非零音频，但这不等于完整观看或试听通过。原工程与测试副本六个文件哈希仍相同，未发现标题保存改动；保存并重开仍待用户确认。单凭 MP4 不能独立确认导出操作方式或使用了哪个工程。严格 30 fps 目标尚未满足，不申请 ACCEPTED / FROZEN；详见 [Phase 2 报告](docs/evidence/PHASE2-OPENFILM-REPORT.md)。
