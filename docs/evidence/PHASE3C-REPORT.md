@@ -58,3 +58,24 @@ HTTP 200 仅是该次元数据请求成功；依赖 wheel、模型权重实际�
 ## 下一步
 
 先取得普通 Windows PowerShell 上两项对照结果，再决定是否使用官方渠道收集文件并完成全部核对。若仍无法获取，保持 BLOCKED。即使模型加载成功，也需明确授权的可丢弃中文语音才能测试中文识别；真人质量要另外人工标注验收。停止在独立审查点，不自动进入正式剪辑。
+
+## Phase 3C-R1：用户终端网络证据与下载准备（2026-11-01）
+
+用户报告在普通 Windows PowerShell 中，官方 PyPI 的 `faster-whisper` JSON 接口和 Hugging Face 的模型元数据接口分别返回 HTTP 200，记为 **USER_REPORTED_PASS（仅两项元数据访问）**。这不证明 wheel、模型权重下载成功；保留上文受限执行环境超时和此前 UNKNOWN 的历史记录。本轮不重复此前受限环境中的网络请求，也未实际在用户终端运行下载脚本。
+
+当前工作区仍不是 Git 仓库，不能执行本地 `git pull` / `git status`；GitHub `main` 开始时为指定基线 `f1f1b3e1534e341bd1bd2ec37dcaed4c21be95ca`。本地 README 与公开 README 不同，分别保留原内容并增加索引。
+
+| 项目 | 状态 | 证据和范围 |
+| --- | --- | --- |
+| 独立 Python / pip | PASS（准备） | Python 3.12.4 venv；使用本机 Python 自带 `ensurepip` 将 pip 24.0 安装到该 venv。受限环境默认临时目录第一次出现权限拒绝，随后仅将当前进程 TEMP/TMP 指向工作区内目录后成功。没有安装 ASR 包或更改系统 Python。 |
+| 用户终端官方元数据连接 | USER_REPORTED_PASS | 用户报告两项 HTTP 200；不是权重和 wheel 下载测试。 |
+| 下载脚本准备 | READY_FOR_USER_RUN | `scripts/phase3c_prepare.ps1` 调用本地 Python 脚本，独立路径只采集候选 wheel、固定修订模型和本地证据，不安装 ASR 包或运行媒体。命令与说明见 [操作指南](../PHASE3C-R1-GUIDE.md)。 |
+| 脚本模拟回归 | PASS | 独立 venv 中完整 50 项测试通过（原有 41 项加 9 项采集脚本离线模拟测试）；PowerShell 语法解析通过。假文件、模拟元数据及错误不能证明真实下载成功。 |
+| 真实 wheel 下载与完整传递依赖锁 | NOT_RUN | 脚本尚未在普通用户终端实际执行；贪心解析器不是完整依赖求解器，候选清单、全部许可证与兼容性须复核，不能用于直接安装。 |
+| 真实模型权重下载与官方身份核验 | NOT_RUN | 脚本固定候选 revision，设计上核对官方 Git blob ID 或 LFS SHA-256；真实数据和 CDN 跳转尚未验证。 |
+| 独立 ASR 依赖安装、模型实际加载、CPU int8、离线推理 | NOT_RUN | 真实依赖和模型未取得；无模型耗时或 RAM 峰值。Python 层断网措施不能代替原生代码实际离线验证。 |
+| 中文语音识别与 SRT、真人质量指标 | NOT_RUN | 没有模型执行和合法中文语音冒烟证据；真实口播的识别准确率、边界误差和误删率仍待人工参考标注。 |
+
+下载脚本每次使用唯一新目录；失败时明确 BLOCKED，不自动换镜像或安装 ASR 包。即使状态为 `FILES_VERIFIED_REVIEW_REQUIRED`，也仅表示已收集文件匹配本次官方元数据，仍需完成依赖闭包、许可证、真实模型加载、缺失文件和离线推理等门禁；这也不是发布者签名证明。用户不应上传模型、wheel、媒体、个人路径、代理凭据或私有日志至公开仓库。
+
+阶段仍为 **PARTIAL / WAITING_USER_RUN**：脚本与测试可审查，环境依赖尚未到位；Phase 3B 不申请全功能冻结，Phase 2C 仍为 PARTIAL / WAITING_USER_CHECK。等待用户按操作指南在普通 PowerShell 运行并回报简短状态，再根据实际文件本地核验。

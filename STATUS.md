@@ -1,6 +1,10 @@
 # 安装和测试记录
 
-更新时间：2026-10-31。仅使用合成素材测试，未处理正式视频。
+更新时间：2026-11-01。仅使用合成素材测试，未处理正式视频。
+
+## Phase 3C-R1：PARTIAL / WAITING_USER_RUN（2026-11-01）
+
+用户报告普通 PowerShell 访问 PyPI 和 Hugging Face 两个官方元数据接口均为 HTTP 200；wheel 和权重是否可下载尚未验证。独立 Python 3.12.4 环境已用本地 `ensurepip` 准备 pip 24.0，未安装 ASR 包。现有 41 项测试及新增 9 项采集脚本离线模拟测试共 50 项通过；脚本可供用户在普通终端运行，候选依赖锁和许可证需后续复核。真实下载、模型加载、CPU int8、离线推理和中文识别均 **NOT_RUN**。详见 [Phase 3C 报告补验记录](docs/evidence/PHASE3C-REPORT.md) 和 [操作指南](docs/PHASE3C-R1-GUIDE.md)。Phase 2C 仍待人工检查。
 
 ## Phase 3C：BLOCKED，等待独立验收
 
