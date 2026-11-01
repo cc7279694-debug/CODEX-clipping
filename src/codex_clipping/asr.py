@@ -7,10 +7,31 @@ import os
 from pathlib import Path
 import re
 import socket
+import wave
 
 
 class ModelError(ValueError):
     pass
+
+
+def read_pcm16_mono(path):
+    """Read the pipeline's normalized WAV without shifting or guessing its timing."""
+    import numpy as np
+
+    try:
+        with wave.open(str(path), 'rb') as source:
+            if (source.getnchannels() != 1 or source.getsampwidth() != 2 or
+                    source.getframerate() != 16000 or source.getcomptype() != 'NONE'):
+                raise ModelError('Expected uncompressed mono 16 kHz signed 16-bit WAV')
+            frame_count = source.getnframes()
+            if frame_count <= 0:
+                raise ModelError('Empty audio cannot be transcribed')
+            data = source.readframes(frame_count)
+            if len(data) != frame_count * 2:
+                raise ModelError('Truncated audio cannot be transcribed')
+    except (wave.Error, EOFError) as error:
+        raise ModelError('Invalid WAV input') from error
+    return np.frombuffer(data, dtype='<i2').astype(np.float32) / 32768.0
 
 
 def file_hash(path):
@@ -107,10 +128,11 @@ def transcribe_local(wav_path, model_directory, threads=2):
             raise ModelError('Runtime dependency versions are not fully recorded')
         with offline_guard():
             from faster_whisper import WhisperModel
+            audio = read_pcm16_mono(wav)
             model = WhisperModel(str(Path(model_directory).resolve()), device='cpu',
                                  compute_type='int8', cpu_threads=threads, num_workers=1,
                                  local_files_only=True)
-            iterator, info = model.transcribe(str(wav.resolve()), language='zh', task='transcribe',
+            iterator, info = model.transcribe(audio, language='zh', task='transcribe',
                                              beam_size=1, vad_filter=False,
                                              condition_on_previous_text=False, word_timestamps=False)
             segments = [{'start': s.start, 'end': s.end, 'text': s.text.strip()} for s in iterator]

@@ -73,7 +73,8 @@ def analyze(source, output_dir, ffmpeg, ffprobe, model_dir, *, threads=2):
             transcript, asr = transcribe_local(out / 'analysis-audio.wav', model_dir, threads)
             transcript = validate_transcript_segments(transcript, duration)
             result['stages']['asr'] = 'PASS'
-            result['transcript_status'] = 'ASR_OUTPUT_REQUIRES_HUMAN_REVIEW'
+            result['transcript_status'] = ('ASR_OUTPUT_REQUIRES_HUMAN_REVIEW' if transcript
+                                           else 'ASR_NO_TEXT_REQUIRES_HUMAN_REVIEW')
         except Exception:
             result['stages']['asr'] = 'BLOCKED'
             raise
@@ -97,7 +98,7 @@ def analyze(source, output_dir, ffmpeg, ffprobe, model_dir, *, threads=2):
     srt = render_srt(transcript, duration) if duration else ''
     with (out / 'transcript.srt').open('x', encoding='utf-8', newline='\n') as output:
         output.write(srt)
-    result['stages']['subtitles'] = 'PASS' if result['stages']['asr'] == 'PASS' and unchanged else 'NOT_RUN'
+    result['stages']['subtitles'] = 'PASS' if result['stages']['asr'] == 'PASS' and unchanged and transcript else 'NOT_RUN'
     write_json(out / 'silence-candidates.json', {'schema_version': 1, 'time_base': 'source_seconds',
                'source_sha256': digest, 'status': result['stages']['silence'] if unchanged else 'INVALIDATED',
                'settings': {'noise_db': -35, 'minimum_seconds': 2}, 'candidates': silence,

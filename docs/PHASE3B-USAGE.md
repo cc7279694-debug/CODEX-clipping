@@ -1,6 +1,6 @@
 # Phase 3B 本地命令与限制
 
-当前基础代码可独立测试；真实中文转写因官方依赖/模型下载不可达而未验证。独立环境位于 `AI-Video-Workspace/phase3b/.venv`，只有 Python 3.12.4，未装 pip、faster-whisper 或模型。不要把下列命令当作已经完成的 ASR 操作。
+独立环境位于 `AI-Video-Workspace/phase3b/.venv`。Phase 3C-R1 已安装并核验一组固定依赖，完成真实 base 模型加载和一次本地中文合成语音冒烟；真人语音质量、完整原生离线隔离和长视频资源仍未验证。模型输出可能是繁体中文，必须人工校对。实际版本、限制和此前下载失败历史见 [Phase 3C 报告](evidence/PHASE3C-REPORT.md)。下方命令仍仅供明确授权的测试素材使用。
 
 从仓库根设置当前进程模块搜索路径，不改变系统配置：
 
@@ -14,7 +14,7 @@ $env:PYTHONPATH = Join-Path $taskRoot 'src'
 
 网络允许后，只从 [官方 PyPI](https://pypi.org/project/faster-whisper/) 和 [Systran 官方模型](https://huggingface.co/Systran/faster-whisper-base) 取得包与模型。依赖解析和下载属于单独的准备步骤；锁定实际 wheel、全部传递依赖版本及 SHA-256，固定模型 commit revision，并核对许可。当前没有可称为实际 lock 的文件，不能复制单元测试中的虚构版本/哈希使用。
 
-首测候选为多语言 `base`、CPU int8、2 线程、单进程；资源充足且验证通过后再评估 small。不启用 GPU。模型目录只包含实际审核过的资源和 `model-manifest.json`，其结构为：
+当前合成冒烟使用多语言 `base`、CPU 请求 int8、2 线程、单进程；实际运行库报告 `int8_float32`。不启用 GPU。模型目录只包含实际审核过的资源和 `model-manifest.json`，其结构为：
 
 ```json
 {
@@ -58,7 +58,11 @@ $env:PYTHONPATH = Join-Path $taskRoot 'src'
 
 工具读取元数据、提取只供分析的 16 kHz 单声道 WAV、检测低电平区间，然后尝试本地中文转写；输出 `metadata.json`、`transcript.srt`、`silence-candidates.json`、`edit-decisions.json`。输出目录必须是新的，使用独占创建；不覆盖源文件或已有结果。源 SHA-256 前后不同则结果失效。仅支持已知接近零的媒体和音轨起点；非零或未知起点明确阻塞，不猜偏移。保留源时间，未支持的复杂音轨应单独报告。
 
+兼容性：PyAV 19 的文件解码与 faster-whisper 1.2.1 当前接口不兼容；工作流严格核验 FFmpeg 生成的 16 kHz、单声道、16 位 PCM WAV 后传入数值数组。该方式会将整段音频载入内存，长音频占用未知；它不表示 PyAV 的文件解码接口已修复。
+
 ASR 失败时仍可能留下元数据/静音结果及空 SRT；以 `metadata.json` 的阶段状态为准。空 SRT 不算字幕生成通过，空转写不证明没有低声讲话。状态 `READY_FOR_REVIEW` 只表示代码流程完成，文字、时间戳和剪辑建议还需人工审核。
+
+若 ASR 正常返回空文本，字幕阶段为 `NOT_RUN`，转录状态为 `ASR_NO_TEXT_REQUIRES_HUMAN_REVIEW`；请人工检查音频，不能认为没有讲话。
 
 ## 建议、接受、拒绝和撤销
 

@@ -2,6 +2,10 @@
 
 更新时间：2026-11-01。仅使用合成素材测试，未处理正式视频。
 
+## Phase 3C-R1：真实模型与合成中文补验，PARTIAL / READY_FOR_REVIEW
+
+用户在普通终端获取官方文件后，本地核验 24 个 wheel 与 6 个模型文件，离线固定哈希安装及 `pip check` 通过。真实多语言 base 模型加载通过（请求 CPU int8、2 线程；运行库报告 `int8_float32`），并生成一次 7.81 秒自制中文语音的非空 SRT；输出为繁体字，源哈希不变、没有剪切。第一次文件路径转写遇到 PyAV 19 不兼容，已保留失败并改用验证过的标准 PCM 数组输入。完整原生进程离线隔离证据、真人准确率、字幕边界误差、误删率和长音频性能仍未验证，Phase 3B 未冻结；Phase 2C 的人工项目仍待确认。详见 [Phase 3C 补验](docs/evidence/PHASE3C-REPORT.md)。
+
 ## Phase 3C-R1：PARTIAL / WAITING_USER_RUN（2026-11-01）
 
 用户在普通 PowerShell 重试时遇到配置文件 UTF-8 / GBK 编码不匹配，发生在下载前。脚本现已修复；53 项离线测试及实际 venv 的 GBK 模式预检通过。真实下载仍 **NOT_RUN**，等待用户重试。详情见 [Phase 3C 报告](docs/evidence/PHASE3C-REPORT.md)。
