@@ -4,6 +4,8 @@
 
 ## 先读这里
 
+- [Phase 4A 报告](docs/evidence/PHASE4A-REPORT.md)：ClipPlan 与 OpenFilm 合成工程已通过 79 项本地测试及官方解析器静态检查；Studio 播放、声音、可编辑性待用户检查，实际帧率尚未确认。
+- [Phase 4 主规划](docs/PHASE4-MASTER-PLAN.md)、[ClipPlan V1](docs/PHASE4A-CLIPPLAN-SCHEMA.md) 与 [验收标准](docs/PHASE4A-ACCEPTANCE.md)。
 - Phase 3C-R1：官方文件核验与离线依赖安装、真实模型加载、一次自制中文语音转写及字幕冒烟通过；输出为繁体，简体转换未实现，原生进程完整离线隔离和真人质量待验证。详见 [Phase 3C 报告](docs/evidence/PHASE3C-REPORT.md)。
 - Phase 3C-R1 用户终端预检的中文 Windows 编码错误已修复；53 项本地测试通过，真实下载、模型加载及中文识别仍未运行，详见 [补验报告](docs/evidence/PHASE3C-REPORT.md)。
 - [Phase 3C-R1 下载准备和操作指南](docs/PHASE3C-R1-GUIDE.md)：用户报告普通 PowerShell 两项官方元数据访问 HTTP 200；下载脚本完成并通过模拟测试，真实 wheel、模型、加载、离线推理与中文识别仍 **NOT_RUN**，候选依赖锁及许可证待核查。

@@ -2,6 +2,10 @@
 
 更新时间：2026-11-01。仅使用合成素材测试，未处理正式视频。
 
+## Phase 4A：READY_FOR_REVIEW / READY_FOR_USER_CHECK
+
+ClipPlan 及 OpenFilm 0.2.7 适配器已完成合成工程生成与静态核查：两段 7.5 秒竖屏测试视频、15 秒独立合成音频；79 项本地测试通过，本机官方解析器无问题。计划中的审核由合成测试脚本生成，不能代表真人审核。Studio 实际打开、播放、声音与可编辑性等待用户检查；ClipPlan 的 30 fps 不保证写入 Studio，帧率实测 NOT_RUN。范围、路径及操作见 [Phase 4A 报告](docs/evidence/PHASE4A-REPORT.md)。Phase 2C 与 Phase 3 的原有人工检查和未验证项目保持原状态。
+
 ## Phase 3C-R1：真实模型与合成中文补验，PARTIAL / READY_FOR_REVIEW
 
 用户在普通终端获取官方文件后，本地核验 24 个 wheel 与 6 个模型文件，离线固定哈希安装及 `pip check` 通过。真实多语言 base 模型加载通过（请求 CPU int8、2 线程；运行库报告 `int8_float32`），并生成一次 7.81 秒自制中文语音的非空 SRT；输出为繁体字，源哈希不变、没有剪切。第一次文件路径转写遇到 PyAV 19 不兼容，已保留失败并改用验证过的标准 PCM 数组输入。完整原生进程离线隔离证据、真人准确率、字幕边界误差、误删率和长音频性能仍未验证，Phase 3B 未冻结；Phase 2C 的人工项目仍待确认。详见 [Phase 3C 补验](docs/evidence/PHASE3C-REPORT.md)。
