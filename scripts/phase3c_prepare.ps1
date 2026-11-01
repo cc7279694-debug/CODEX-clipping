@@ -16,7 +16,7 @@ while ($null -ne $check) {
     $check = Get-Item -LiteralPath (Split-Path -Parent $check.FullName)
 }
 if ($null -eq $check) { Write-Error 'BLOCKED: invalid venv path.'; exit 1 }
-& $python -I -c "import os,sys,pathlib; expected=os.path.normcase(os.path.abspath(os.path.join(sys.argv[1], 'AI-Video-Workspace','phase3b','.venv'))); cfg=pathlib.Path(sys.prefix,'pyvenv.cfg').read_text().lower().replace(' ',''); assert sys.version_info[:3] == (3,12,4) and os.path.normcase(os.path.abspath(sys.prefix)) == expected and sys.prefix != sys.base_prefix and 'include-system-site-packages=false' in cfg" $root
+& $python -I -c "import os,sys,pathlib; expected=os.path.normcase(os.path.abspath(os.path.join(sys.argv[1], 'AI-Video-Workspace','phase3b','.venv'))); cfg=pathlib.Path(sys.prefix,'pyvenv.cfg').read_text(encoding='utf-8').lower().replace(' ',''); assert sys.version_info[:3] == (3,12,4) and os.path.normcase(os.path.abspath(sys.prefix)) == expected and sys.prefix != sys.base_prefix and 'include-system-site-packages=false' in cfg" $root
 if ($LASTEXITCODE -ne 0) {
     Write-Error 'BLOCKED: expected isolated Python 3.12.4.'
     exit 1

@@ -4,6 +4,7 @@
 
 ## 先读这里
 
+- Phase 3C-R1 用户终端预检的中文 Windows 编码错误已修复；53 项本地测试通过，真实下载、模型加载及中文识别仍未运行，详见 [补验报告](docs/evidence/PHASE3C-REPORT.md)。
 - [Phase 3C-R1 下载准备和操作指南](docs/PHASE3C-R1-GUIDE.md)：用户报告普通 PowerShell 两项官方元数据访问 HTTP 200；下载脚本完成并通过模拟测试，真实 wheel、模型、加载、离线推理与中文识别仍 **NOT_RUN**，候选依赖锁及许可证待核查。
 - [Phase 3C 中文 ASR 环境补验](docs/evidence/PHASE3C-REPORT.md)：**BLOCKED**；41 项逻辑回归通过，但官方依赖和模型尚未可靠取得，实际模型加载、离线推理及中文识别均 **NOT_RUN**；普通 Windows 用户终端连接状态待核对。
 - [Phase 3B 开发与测试记录](docs/evidence/PHASE3B-REPORT.md)：基础代码 **DEV_COMPLETE / READY_FOR_REVIEW**，整体 **PARTIAL**；41 项逻辑和安全测试通过，官方依赖与模型下载 **BLOCKED**，中文 ASR、真实模型加载和真人质量测试 **NOT_RUN**。
